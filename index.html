@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Marugame Udon</title>
+    <meta name="description" content="Menu, lokasi dan diskon Marugame Udon ada disini!">
+
+    <!-- Favicon & CSS dari Folder IMAGE -->
+    <link rel="shortcut icon" href="IMAGE/logo-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="IMAGE/css2">
+    <link rel="stylesheet" href="IMAGE/output.ff9219d7e32d.css" type="text/css">
+    <link rel="stylesheet" href="IMAGE/tiny-slider.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            background-color: #f8f8f8;
+        }
+
+        .container-block {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        .top-dashboard-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-dashboard-nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .top-dashboard-nav a:hover {
+            color: #e5231b;
+        }
+
+        .youtube-banner-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .youtube-banner-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .menu-grid-container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 25px !important;
+            padding: 20px 0 !important;
+            align-items: stretch !important;
+        }
+
+        .menu-grid-container .menu-card {
+            background-color: #ffffff !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+            transition: transform 0.2s ease !important;
+            text-decoration: none !important;
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+        }
+
+        .menu-grid-container .menu-card:hover {
+            transform: translateY(-4px) !important;
+        }
+
+        .menu-grid-container .menu-card .img-wrapper {
+            width: 100% !important;
+            height: 200px !important;
+            background-color: #f8f8f8 !important;
+            overflow: hidden !important;
+            display: block !important;
+            position: relative !important;
+        }
+
+        .menu-grid-container .menu-card img {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 200px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            display: block !important;
+        }
+
+        .menu-grid-container .menu-card .menu-info {
+            padding: 15px !important;
+            text-align: center !important;
+            background: #ffffff !important;
+            margin-top: auto !important;
+            width: 100% !important;
+        }
+
+        .menu-grid-container .menu-card .menu-title {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #2b2b2b !important;
+            margin: 0 0 6px 0 !important;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-grid-container .menu-card .menu-category {
+            font-size: 12px !important;
+            color: #e5231b !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .main-footer {
+            background-color: #ffffff;
+            padding-top: 40px;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 450px;
+        }
+
+        .halal-subscribe-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .halal-logo {
+            height: 65px !important;
+            width: auto !important;
+            max-width: 80px !important;
+            object-fit: contain;
+        }
+
+        .subscribe-label {
+            font-weight: bold;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .subscribe-input {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid #e0e0e0;
+            background-color: #f2f2f2;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            outline: none;
+            width: 160px;
+        }
+
+        .subscribe-button {
+            padding: 8px 18px;
+            font-size: 14px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .brand-partner {
+            margin-top: 10px;
+        }
+
+        .brand-title {
+            font-size: 14px;
+            color: #333333;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .partner-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .partner-img {
+            height: 35px !important;
+            width: auto !important;
+            max-width: 120px !important;
+            object-fit: contain;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-links a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .social-policy-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 15px;
+        }
+
+        .privacy-link {
+            color: #333333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .social-icons img {
+            width: 32px !important;
+            height: 32px !important;
+            object-fit: contain;
+        }
+
+        .footer-bottom-bar {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 12px;
+        }
+
+        .bottom-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hotline-link {
+            color: #ffffff;
+            text-decoration: underline;
+            margin-left: 5px;
+        }
+    </style>
+
+    <script async src="IMAGE/analytics.js.download"></script>
+    <script async src="IMAGE/js"></script>
+    <script async src="IMAGE/js(1)"></script>
+</head>
+
+<body class="homepage">
+
+    <nav class="top-dashboard-nav">
+        <a href="https://www.marugameudon.co.id/">Menu</a>
+        <a href="https://www.marugameudon.co.id/">Promotions</a>
+        <a href="https://www.marugameudon.co.id/">Store Locations</a>
+        <a href="https://www.marugameudon.co.id/">Contact Us</a>
+        <a href="https://www.marugameudon.co.id/">About Us</a>
+        <a href="https://www.marugameudon.co.id/">App</a>
+    </nav>
+
+    <div class="pure-g">
+        <div id="overlay" class="overlay"></div>
+
+        <div class="pure-u-1-1 container-block">
+            
+            <div class="youtube-banner-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/sEYPsl2XBwI?autoplay=1&mute=1&loop=1&playlist=sEYPsl2XBwI" 
+                    title="Marugame Udon Video" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="container container-padding-inside soft-beige-bg">
+                <h2 class="container-padding">
+                    <strong>Our Menus</strong>
+                </h2>
+
+                <div class="menu-grid-container">
+                    
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-1.jpg" alt="Udon Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Udon</div>
+                            <h3 class="menu-title">Udon Selection</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-2.jpg" alt="Tempura Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Tempura</div>
+                            <h3 class="menu-title">Tempura Selection</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-3.jpg" alt="Bento Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Bento</div>
+                            <h3 class="menu-title">Bento Box</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-4.jpg" alt="Rice Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Rice Bowl</div>
+                            <h3 class="menu-title">Rice Bowl Selection</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-5.jpg" alt="Dessert Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Dessert</div>
+                            <h3 class="menu-title">Dessert Selection</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.marugameudon.co.id/" class="menu-card">
+                        <div class="img-wrapper">
+                            <img src="IMAGE/menu-6.jpg" alt="Drinks Menu">
+                        </div>
+                        <div class="menu-info">
+                            <div class="menu-category">Drinks</div>
+                            <h3 class="menu-title">Beverages</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-container">
+                    
+                    <div class="footer-left">
+                        <div class="halal-subscribe-group">
+                            <img src="IMAGE/halal.png" alt="Halal Indonesia" class="halal-logo">
+                            <div>
+                                <label class="subscribe-label">Subscribe Us:</label>
+                                <form method="POST" class="subscribe-form">
+                                    <input type="email" name="email" placeholder="Your Email" required class="subscribe-input">
+                                    <button type="submit" class="subscribe-button">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="brand-partner">
+                            <p class="brand-title">Part of Marugame Udon Indonesia</p>
+                            <div class="partner-logos">
+                                <a href="https://ramenzundoya.co.id/" target="_blank">
+                                    <img src="IMAGE/zundoya.webp" alt="Zundo-Ya Ramen" class="partner-img">
+                                </a>
+                                <a href="https://www.marugameudon.co.id/" target="_blank">
+                                    <img src="IMAGE/karubimaru.webp" alt="Karubi Maru" class="partner-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-right">
+                        <div class="footer-links">
+                            <a href="https://www.marugameudon.co.id/">Menu</a>
+                            <a href="https://www.marugameudon.co.id/">Promotions</a>
+                            <a href="https://www.marugameudon.co.id/">Store Locations</a>
+                            <a href="https://www.marugameudon.co.id/">Contact Us</a>
+                            <a href="https://www.marugameudon.co.id/">About Us</a>
+                            <a href="https://www.marugameudon.co.id/">App</a>
+                        </div>
+
+                        <div class="social-policy-wrapper">
+                            <a href="https://www.marugameudon.co.id/" class="privacy-link">Privacy Policy</a>
+                            
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/marugameudonid/" target="_blank">
+                                    <img src="IMAGE/icon-facebook.png" alt="Facebook">
+                                </a>
+                                <a href="https://twitter.com/MarugameUdonID" target="_blank">
+                                    <img src="IMAGE/icon-twitter.png" alt="Twitter">
+                                </a>
+                                <a href="https://www.instagram.com/marugameudon/" target="_blank">
+                                    <img src="IMAGE/icon-instagram.png" alt="Instagram">
+                                </a>
+                                <a href="https://www.youtube.com/@marugameudonindonesia" target="_blank">
+                                    <img src="IMAGE/icon-youtube.png" alt="YouTube">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom-bar">
+                    <div class="bottom-bar-content">
+                        <div>
+                            <strong>Customer Hotline Service</strong> 
+                            <a href="tel:+628113453345" class="hotline-link">+62 811 3453 345 (WA,SMS, or Call)</a>
+                        </div>
+                        <div>
+                            ©2026 Marugame Udon. All rights reserved
+                        </div>
+                    </div>
+                </div>
+            </footer>   
+
+        </div>
+    </div>
+
+    <script src="IMAGE/scripts.js.download"></script>
+    <script src="IMAGE/tiny-slider.js.download"></script>
+    <script>
+        let burgerMenus = document.querySelectorAll('.burger-menu');
+        let overlay = document.getElementById('overlay');
+
+        burgerMenus.forEach((burgerMenu) => {
+            burgerMenu.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.body.classList.toggle("show-sidebar");
+            });
+        });
+
+        if(overlay) {
+            overlay.addEventListener('click', () => document.body.classList.remove("show-sidebar"));
+        }
+    </script>
+</body>
+</html>
